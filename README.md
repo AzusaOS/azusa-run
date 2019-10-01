@@ -16,6 +16,8 @@ This will create a "apkg" binary. apkg has no external dependencies and only req
 
 Launch apkg as root and keep it open in a console in order to see what happens and stop it afterward (you can stop apkg with Ctrl-C, it will cause clean unmount of /pkg/main).
 
+	sudo ./apkg
+
 ## Creating a chroot
 
 Once you have installed apkg, creating a chroot is fairly easy.
@@ -26,7 +28,7 @@ Create en empty directory
 
 Initialize it
 
-	/pkg/main/core.symlinks.core/azusa/makeroot.sh azusa
+	sudo /pkg/main/core.symlinks.core/azusa/makeroot.sh azusa
 
 The makeroot.sh will initialize the directory with a number of needed files and symlinks. Feel free to have a look.
 
@@ -35,10 +37,10 @@ The makeroot.sh will initialize the directory with a number of needed files and 
 Typically Linux expects to find a number of things mounted in a chroot. We are going to mount a few things.
 
 	cd azusa
-	mkdir -p pkg/main
-	mount -o bind /pkg/main pkg/main
-	mount -t proc proc proc
-	mount -o mode=1777 -t tmpfs tmpfs dev/shm
+	sudo mkdir -p pkg/main
+	sudo mount -o bind /pkg/main pkg/main
+	sudo mount -t proc proc proc
+	sudo mount -o mode=1777 -t tmpfs tmpfs dev/shm
 
 We could also mount other things (sysfs, etc) but these aren't needed right now.
 
@@ -46,7 +48,7 @@ We could also mount other things (sysfs, etc) but these aren't needed right now.
 
 You can now enter the chroot.
 
-	chroot . /bin/bash --login
+	sudo chroot . /bin/bash --login
 
 You will see apkg download bash, glibc, etc as needed. You are now in a shell inside AZUSA. You can compile stuff with gcc, launch a nginx server, run some PHP scripts, etc. Everything you need will be downloaded by apkg seamlessly as you use it.
 
