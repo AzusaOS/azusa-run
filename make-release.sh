@@ -11,7 +11,7 @@ INITRD_CPIO="initrd-$RELEASE.cpio"
 INITRD_DIR="initrd-$RELEASE-tmp"
 INITRD="initrd-$RELEASE.img"
 KERNEL="linux-$RELEASE.img"
-ARCHIVE="azusa-$RELEASE.tar"
+ARCHIVE="azusa-$RELEASE.tar.gz"
 ROOTDIR="$PWD"
 
 echo "Preparing initrd for kernel $KVER"
@@ -44,12 +44,13 @@ echo "Copy kernel..."
 cp -T /pkg/main/sys-kernel.linux.core.$KVER/linux-$KVER.img "$KERNEL"
 
 echo "Archive..."
-tar czf "$ARCHIVE.gz" "$INITRD" "$KERNEL"
-tar cJf "$ARCHIVE.xz" "$INITRD" "$KERNEL"
+tar czf "$ARCHIVE" "$INITRD" "$KERNEL"
 
 echo "Checksum..."
-sha1sum -b "$INITRD" "$KERNEL" "$ARCHIVE.gz" "$ARCHIVE.xz" >"release/azusa-$RELEASE.sha1"
-sha256sum -b "$INITRD" "$KERNEL" "$ARCHIVE" "$ARCHIVE.xz" >"release/azusa-$RELEASE.sha256"
+sha1sum -b "$ARCHIVE" >"release/azusa-$RELEASE.sha1"
+sha256sum -b "$ARCHIVE" >"release/azusa-$RELEASE.sha256"
+
+rm "$INITRD" "$KERNEL"
 
 echo "Complete!"
 echo "git add release"
