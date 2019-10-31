@@ -10,7 +10,7 @@ RELEASE="$KVER.$INITVER"
 INITRD_CPIO="initrd-$RELEASE.cpio"
 INITRD_DIR="initrd-$RELEASE-tmp"
 INITRD="initrd-$RELEASE.img"
-KERNEL="linux-$RELEASE.img"
+KERNEL="kernel-$RELEASE.img"
 ARCHIVE="azusa-$RELEASE.tar.gz"
 ROOTDIR="$PWD"
 
