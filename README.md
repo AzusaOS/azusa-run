@@ -1,9 +1,9 @@
 # Running AZUSA
 
-Right now AZUSA cannot be run standalone because its bootloader isn't ready yet.
+You can experimentally experience AZUSA inside a vm or on a computer by downloading one of our iso images and running it on a CD or a USB disk.
 
-You can however experimentally experience AZUSA inside a qemu VM.
+Download [the latest binary release](https://github.com/AzusaOS/azusa-run/releases).
 
-Download [the latest binary release](https://github.com/AzusaOS/azusa-run/releases) first and extract it, then run in that directory:
+## Running in qemu
 
-	qemu-system-x86_64 -kernel kernel-*.img -initrd initrd-*.img -m 4096 --enable-kvm -cpu host
+	qemu-system-x86_64 -m 4096 --enable-kvm -cpu host -cdrom azusa-*.iso
