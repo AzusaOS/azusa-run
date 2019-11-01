@@ -70,6 +70,7 @@ rm -fr cdroot
 
 echo "Complete!"
 echo "git add release/azusa-$RELEASE.*"
+echo "echo $RELEASE >release/LATEST.txt && git add release/LATEST.txt"
 echo "git commit -a -m 'Release $RELEASE'"
 echo "git tag v$RELEASE"
 echo "git push && git push --tags"
