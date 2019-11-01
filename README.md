@@ -2,7 +2,7 @@
 
 You can experimentally experience AZUSA inside a vm or on a computer by downloading one of our iso images and running it on a CD or a USB disk.
 
-Download [the latest binary release](https://github.com/AzusaOS/azusa-run/releases).
+Download [the latest binary release](https://github.com/AzusaOS/azusa-run/releases) as ISO file (found in "Assets").
 
 ## Running in qemu
 
