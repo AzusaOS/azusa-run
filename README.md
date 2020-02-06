@@ -4,6 +4,8 @@ You can experimentally experience AZUSA inside a vm or on a computer by download
 
 Download [the latest binary release](https://github.com/AzusaOS/azusa-run/releases) as ISO file (found in "Assets").
 
+The default root password will be set to "azusa".
+
 ## Running in qemu
 
 	qemu-system-x86_64 -m 4096 --enable-kvm -cpu host -cdrom azusa-*.iso
