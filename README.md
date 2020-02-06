@@ -9,3 +9,7 @@ The default root password will be set to "azusa".
 ## Running in qemu
 
 	qemu-system-x86_64 -m 4096 --enable-kvm -cpu host -cdrom azusa-*.iso
+
+Or if klv is not available on your system:
+
+	qemu-system-x86_64 -m 4096 -cdrom azusa-*.iso
