@@ -55,7 +55,7 @@ SAY Now booting AZUSA...
 
 LABEL azusa
 	KERNEL /isolinux/$KERNEL
-	APPEND initrd=/isolinux/$INITRD quiet loglevel=3 vga=current
+	APPEND initrd=/isolinux/$INITRD quiet loglevel=3 azusa=live vga=current
 EOF
 
 echo "Make ISO..."
