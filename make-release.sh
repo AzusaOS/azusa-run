@@ -27,10 +27,14 @@ cd "$INITRD_DIR"
 echo "Adding tools..."
 
 # prepare environment
-mkdir -p usr/azusa
+mkdir -p usr/azusa etc
 cp -T "/pkg/main/azusa.apkg.core/apkg" usr/azusa/apkg
 cp -T /pkg/main/sys-apps.busybox.core/bin/busybox usr/azusa/busybox
 cp -T "/pkg/main/azusa.init.$INITVER/init" init
+cp -T /pkg/main/azusa.baselayout.core/etc/shadow etc/shadow
+# update root password to "azusa"
+sed -i 's/^root:\*:/root:$1$ZOxNJ00C$lfCUkDnpSu9tSBothd4lQ.:/' etc/shadow
+chmod 0600 etc/shadow
 
 find -L . | cpio -H newc -o -R +0:+0 --append --file "$ROOTDIR/$INITRD_CPIO"
 
