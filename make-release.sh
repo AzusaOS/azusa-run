@@ -2,7 +2,7 @@
 set -e
 
 KVER=`cat /pkg/main/sys-kernel.linux.core/version.txt`
-INITVER=`readlink readlink /pkg/main/azusa.init | sed -r -e 's/.*\.([0-9]+)\..*/\1/'`
+INITVER=`readlink /pkg/main/azusa.init.core | sed -r -e 's/.*\.([0-9]+)\..*/\1/'`
 
 echo "Building initrd for kernel version $KVER with init $INITVER"
 
@@ -30,7 +30,7 @@ echo "Adding tools..."
 mkdir -p usr/azusa etc
 cp -T "/pkg/main/azusa.apkg.core/apkg" usr/azusa/apkg
 cp -T /pkg/main/sys-apps.busybox.core/bin/busybox usr/azusa/busybox
-cp -T "/pkg/main/azusa.init.$INITVER/init" init
+cp -T "/pkg/main/azusa.init.core.$INITVER/init" init
 cp -T /pkg/main/azusa.baselayout.core/etc/shadow etc/shadow
 # update root password to "azusa"
 sed -i 's/^root:\*:/root:$1$ZOxNJ00C$lfCUkDnpSu9tSBothd4lQ.:/' etc/shadow
