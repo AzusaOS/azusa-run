@@ -1,3 +1,5 @@
+[![Telegram](https://img.shields.io/badge/chat-telegram-blue.svg?logo=telegram&logoColor=white)](https://t.me/azusa_en)
+
 # Running AZUSA
 
 You can experimentally experience AZUSA inside a vm or on a computer by downloading one of our iso images and running it on a CD or a USB disk.
